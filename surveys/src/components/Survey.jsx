@@ -1,48 +1,33 @@
-import React, { useEffect, useState } from "react";
-import Result from "./Result";
-import { questions } from "../data/Questions";
-import { options } from "../data/Questions";
+import React, { useEffect } from "react";
+import { competencies } from "../data/Questions";
 import { useSurveyStore } from "../store/useSurveyStore";
 import { useNavigate } from "react-router-dom";
-import { interpretations } from "../data/Questions";
-import { interpretScore } from "../services/Services";
-import { useUserStore } from "../store/useUserStore";
-import axios from "axios";
 import useSubmit from "../hooks/useSubmit";
+import { useUserStore } from "../store/useUserStore";
 
 const Survey = () => {
   const {
     answers,
     setAnswer,
-    showResult,
-    setShowResult,
-    scores,
     updateScores,
     getSurveyData,
     setPhone,
+    totals,
+    updateTotals,
   } = useSurveyStore();
+
   const navigate = useNavigate();
   const { userInfo } = useUserStore();
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const [validationError, setValidationError] = useState("");
-
   const mutation = useSubmit();
 
-  const scoresWithInterpretations = Object.entries(scores).reduce(
-    (acc, [section, score]) => {
-      acc[section] = {
-        score,
-        interpretation: interpretScore(section, score),
-      };
-      return acc;
-    },
-    {}
-  );
+  useEffect(() => {
+    setPhone(userInfo.phone);
+  }, [setPhone, userInfo.phone]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateScores();
+    updateTotals(); // Update totals before submission
     const surveyData = getSurveyData();
 
     try {
@@ -50,69 +35,113 @@ const Survey = () => {
         phone: surveyData.phone,
         answers: surveyData.answers,
         scores: surveyData.scores,
+        totals: surveyData.totals,
       });
       navigate("/report");
     } catch (error) {
-      setValidationError("Submission failed. Please try again.");
+      console.error("Submission failed", error);
     }
-
-    console.log("data:--> ", getSurveyData());
-
-    navigate("/report");
   };
-
-  useEffect(() => {
-    setPhone(userInfo.phone);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className="w-full max-w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
       <form className="space-y-8" onSubmit={handleSubmit}>
-        {Object.entries(questions).map(([section, qs]) => (
-          <div key={section} className="p-6 bg-gray-50 rounded-lg shadow-md">
+        {Object.entries(competencies).map(([competency, subcategories]) => (
+          <div key={competency} className="p-6 bg-gray-50 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 text-blue-600">
-              Section {section}
+              {competency}
             </h2>
-            <table className="w-full border-collapse border border-gray-300 text-left">
-              <thead>
-                <tr className="bg-blue-100">
-                  <th className="border border-gray-300 px-4 py-3">Question</th>
-                  {options.map((option) => (
-                    <th
-                      key={option.value}
-                      className="border border-gray-300 px-4 py-3 text-center"
-                    >
-                      {option.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {qs.map((q, index) => (
-                  <tr key={index} className="hover:bg-gray-100">
-                    <td className="border border-gray-300 px-4 py-3">{q}</td>
-                    {options.map((option) => (
-                      <td
-                        key={option.value}
-                        className="border border-gray-300 px-4 py-3 text-center"
-                      >
-                        <input
-                          type="radio"
-                          name={`section-${section}-question-${index}`}
-                          value={option.value}
-                          checked={answers[section][index] === option.value}
-                          onChange={(e) =>
-                            setAnswer(section, index, e.target.value)
-                          }
-                          required
-                        />
-                      </td>
+            {Object.entries(subcategories).map(([subcategory, questions]) => (
+              <div key={subcategory} className="mb-6">
+                <h3 className="text-lg font-semibold text-gray-700">
+                  {subcategory}
+                </h3>
+                <table className="w-full border-collapse border border-gray-300 text-left mt-2">
+                  <thead>
+                    <tr className="bg-blue-100">
+                      <th className="border border-gray-300 px-4 py-3">
+                        Question
+                      </th>
+                      <th className="border border-gray-300 px-4 py-3 text-center">
+                        I Possess It (1-10)
+                      </th>
+                      <th className="border border-gray-300 px-4 py-3 text-center">
+                        The Work Needs It (1-10)
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {questions.map((question, index) => (
+                      <tr key={index} className="hover:bg-gray-100">
+                        <td className="border border-gray-300 px-4 py-3">
+                          {question}
+                        </td>
+                        {["possess", "need"].map((field) => (
+                          <td
+                            key={field}
+                            className="border border-gray-300 px-4 py-3 text-center"
+                          >
+                            <select
+                              name={`${competency}-${subcategory}-${index}-${field}`}
+                              value={
+                                answers?.[competency]?.[subcategory]?.[index]?.[
+                                  field
+                                ] || ""
+                              }
+                              onChange={(e) => {
+                                setAnswer(
+                                  competency,
+                                  subcategory,
+                                  index,
+                                  field,
+                                  e.target.value
+                                );
+                                console.log(
+                                  `Updated: ${competency} -> ${subcategory} -> ${index} -> ${field} = ${e.target.value}`
+                                );
+                              }}
+                              required
+                              className="w-24 px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-sm 
+                                 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+                                 hover:border-blue-500 transition-all duration-200 text-gray-700"
+                            >
+                              <option
+                                value=""
+                                disabled
+                                className="text-gray-500"
+                              >
+                                Select
+                              </option>
+                              {[...Array(10).keys()].map((num) => (
+                                <option
+                                  key={num + 1}
+                                  value={num + 1}
+                                  className="text-gray-800"
+                                >
+                                  {num + 1}
+                                </option>
+                              ))}
+                            </select>
+                          </td>
+                        ))}
+                      </tr>
                     ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    {/* Totals Row */}
+                    <tr className="bg-blue-100 font-semibold">
+                      <td className="border border-gray-300 px-4 py-3 text-right">
+                        Total
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">
+                        {totals?.[competency]?.[subcategory]?.possess || 0}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">
+                        {totals?.[competency]?.[subcategory]?.need || 0}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            ))}
           </div>
         ))}
         <div className="flex justify-center mt-6">
