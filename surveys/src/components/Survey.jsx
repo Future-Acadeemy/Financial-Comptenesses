@@ -13,6 +13,7 @@ const Survey = () => {
     getSurveyData,
     setPhone,
     totals,
+    scores,
     updateTotals,
   } = useSurveyStore();
 
@@ -27,20 +28,21 @@ const Survey = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateScores();
-    updateTotals(); // Update totals before submission
-    const surveyData = getSurveyData();
+    console.log("the scores --> ", scores);
+    // updateTotals();
+    // const surveyData = getSurveyData();
 
-    try {
-      await mutation.mutateAsync({
-        phone: surveyData.phone,
-        answers: surveyData.answers,
-        scores: surveyData.scores,
-        totals: surveyData.totals,
-      });
-      navigate("/report");
-    } catch (error) {
-      console.error("Submission failed", error);
-    }
+    // try {
+    //   await mutation.mutateAsync({
+    //     phone: surveyData.phone,
+    //     answers: surveyData.answers,
+    //     scores: surveyData.scores,
+    //     totals: surveyData.totals,
+    //   });
+    //   navigate("/report");
+    // } catch (error) {
+    //   console.error("Submission failed", error);
+    // }
   };
 
   return (
@@ -63,10 +65,10 @@ const Survey = () => {
                         Question
                       </th>
                       <th className="border border-gray-300 px-4 py-3 text-center">
-                        I Possess It (1-10)
+                        The Work Needs It (1-10)
                       </th>
                       <th className="border border-gray-300 px-4 py-3 text-center">
-                        The Work Needs It (1-10)
+                        I Possess It (1-10)
                       </th>
                     </tr>
                   </thead>
@@ -76,7 +78,7 @@ const Survey = () => {
                         <td className="border border-gray-300 px-4 py-3">
                           {question}
                         </td>
-                        {["possess", "need"].map((field) => (
+                        {["need", "possess"].map((field) => (
                           <td
                             key={field}
                             className="border border-gray-300 px-4 py-3 text-center"
@@ -96,14 +98,11 @@ const Survey = () => {
                                   field,
                                   e.target.value
                                 );
-                                console.log(
-                                  `Updated: ${competency} -> ${subcategory} -> ${index} -> ${field} = ${e.target.value}`
-                                );
                               }}
                               required
                               className="w-24 px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-sm 
-                                 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
-                                 hover:border-blue-500 transition-all duration-200 text-gray-700"
+                                focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+                                hover:border-blue-500 transition-all duration-200 text-gray-700"
                             >
                               <option
                                 value=""
@@ -126,16 +125,15 @@ const Survey = () => {
                         ))}
                       </tr>
                     ))}
-                    {/* Totals Row */}
                     <tr className="bg-blue-100 font-semibold">
                       <td className="border border-gray-300 px-4 py-3 text-right">
                         Total
                       </td>
                       <td className="border border-gray-300 px-4 py-3 text-center">
-                        {totals?.[competency]?.[subcategory]?.possess || 0}
+                        {totals?.[competency]?.[subcategory]?.need || 0}
                       </td>
                       <td className="border border-gray-300 px-4 py-3 text-center">
-                        {totals?.[competency]?.[subcategory]?.need || 0}
+                        {totals?.[competency]?.[subcategory]?.possess || 0}
                       </td>
                     </tr>
                   </tbody>

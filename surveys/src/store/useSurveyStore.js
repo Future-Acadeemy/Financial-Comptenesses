@@ -55,26 +55,27 @@ export const useSurveyStore = create(
 
       updateScores: () =>
         set((state) => {
-          const calculateScore = (competency) => {
-            return Object.values(state.answers[competency] || {}).reduce(
-              (sum, subcategory) =>
-                sum +
-                Object.values(subcategory).reduce(
-                  (subSum, question) =>
-                    subSum + (question.possess || 0) + (question.need || 0),
-                  0
-                ),
-              0
-            );
-          };
+          const updatedScores = {};
+          let overallScore = 0;
 
-          const updatedScores = Object.keys(state.answers).reduce(
-            (acc, competency) => {
-              acc[competency] = calculateScore(competency);
-              return acc;
-            },
-            {}
+          Object.entries(state.totals).forEach(
+            ([competency, subcategories]) => {
+              let score = 0;
+
+              Object.values(subcategories).forEach(
+                ({ need = 0, possess = 0 }) => {
+                  score += need - possess;
+                }
+              );
+
+              updatedScores[competency] = score;
+              overallScore += score;
+            }
           );
+
+          updatedScores["overall"] = overallScore;
+
+          console.log("Updated scores ---> ", updatedScores);
 
           return { scores: updatedScores };
         }),
