@@ -122,3 +122,171 @@ export const PersonalityOptions = [
 ];
 
 console.log(personalityQuestions);
+
+export const competencies = {
+  "Leading and Deciding": {
+    "Deciding & Initiating Action": [
+      "Making Decisions",
+      "Taking Responsibility",
+      "Acting with Confidence",
+      "Acting on Own Initiative",
+      "Taking Action",
+      "Taking Calculated Risks",
+    ],
+    "Leading and Supervising": [
+      "Providing Direction and Coordinating Action",
+      "Supervising and Monitoring Behavior",
+      "Coaching",
+      "Delegating",
+      "Empowering Staff",
+      "Motivating Others",
+      "Developing Staff",
+      "Identifying and Recruiting Talent",
+    ],
+  },
+  "Supporting and Cooperating": {
+    "Working with People": [
+      "Understanding Others",
+      "Adapting to the Team",
+      "Building Team Spirit",
+      "Recognizing and Rewarding Contributions",
+      "Listening",
+      "Consulting Others",
+      "Communicating Proactively",
+      "Showing Tolerance and Consideration",
+      "Showing Empathy",
+      "Supporting Others",
+      "Caring for Others",
+      "Developing and Communicating Self-knowledge and Insight",
+    ],
+    "Adhering to Principles and Values": [
+      "Upholding Ethics and Values",
+      "Acting with Integrity",
+      "Utilizing Diversity",
+      "Showing Social and Environmental Responsibility",
+    ],
+  },
+  "Interacting and Presenting": {
+    "Relating & Networking": [
+      "Building Rapport",
+      "Networking",
+      "Relating Across Levels",
+      "Managing Conflict",
+      "Using Humor",
+    ],
+    "Persuading and Influencing": [
+      "Making an Impact",
+      "Shaping Conversations",
+      "Appealing to Emotions",
+      "Promoting Ideas",
+      "Negotiating",
+      "Gaining Agreement",
+      "Dealing with Political Issues",
+    ],
+    "Presenting and Communicating Information": [
+      "Speaking Fluently",
+      "Explaining Concepts and Opinions",
+      "Articulating Key Points of an Argument",
+      "Presenting and Public Speaking",
+      "Projecting Credibility",
+      "Responding to an Audience",
+    ],
+  },
+  "Analyzing and Interpreting": {
+    "Writing and Reporting": [
+      "Writing Correctly",
+      "Writing Clearly and Fluently",
+      "Writing in an Expressive and Engaging Style",
+      "Targeting Communication",
+    ],
+    "Applying Expertise and Technology": [
+      "Applying Technical Expertise",
+      "Building Technical Expertise",
+      "Sharing Expertise",
+      "Using Technology Resources",
+      "Demonstrating Physical and Manual Skills",
+      "Demonstrating Cross Functional Awareness",
+      "Demonstrating Spatial Awareness",
+    ],
+    Analyzing: [
+      "Analyzing and Evaluating Information",
+      "Testing Assumptions and Investigating",
+      "Producing Solutions",
+      "Making Judgments",
+      "Demonstrating Systems Thinking",
+    ],
+  },
+  "Creating and Conceptualizing": {
+    "Learning and Researching": [
+      "Learning Quickly",
+      "Gathering Information",
+      "Thinking Quickly",
+      "Encouraging and Supporting Organizational Learning",
+      "Managing Knowledge",
+    ],
+    "Creating and Innovating": ["Innovating", "Seeking and Introducing Change"],
+    "Formulating Strategies and Concepts": [
+      "Thinking Broadly",
+      "Approaching Work Strategically",
+      "Setting and Developing Strategy",
+      "Visioning",
+    ],
+  },
+  "Organizing and Executing": {
+    "Planning and Organizing": [
+      "Setting Objectives",
+      "Planning",
+      "Managing Time",
+      "Managing Resources",
+      "Monitoring Progress",
+    ],
+    "Delivering Results and Meeting Customer Expectations": [
+      "Focusing on Customer Needs and Satisfaction",
+      "Setting High Standards for Quality",
+      "Monitoring and Maintaining Quality",
+      "Working Systematically",
+      "Maintaining Quality Processes",
+      "Maintaining Productivity Levels",
+      "Driving Projects to Results",
+    ],
+    "Following Instructions and Procedures": [
+      "Following Directions",
+      "Following Procedures",
+      "Time Keeping and Attending",
+      "Demonstrating Commitment",
+      "Showing Awareness of Safety Issues",
+      "Complying with Legal Obligations",
+    ],
+  },
+  "Adapting and Coping": {
+    "Adapting and Responding to Change": [
+      "Adapting",
+      "Accepting New Ideas",
+      "Adapting Interpersonal Style",
+      "Showing Cross-cultural Awareness",
+      "Dealing with Ambiguity",
+    ],
+    "Coping with Pressure and Setbacks": [
+      "Coping with Pressure",
+      "Showing Emotional Self-control",
+      "Balancing Work and Personal Life",
+      "Maintaining a Positive Outlook",
+      "Handling Criticism",
+    ],
+  },
+  "Enterprising and Performing": {
+    "Achieving Personal Work Goals and Objectives": [
+      "Achieving Objectives",
+      "Working Energetically and Enthusiastically",
+      "Pursuing Self-development",
+      "Demonstrating Ambition",
+    ],
+    "Entrepreneurial and Commercial Thinking": [
+      "Monitoring Markets and Competitors",
+      "Identifying Business Opportunities",
+      "Demonstrating Financial Awareness",
+      "Controlling Costs",
+      "Keeping Aware of Organizational Issues",
+    ],
+  },
+};
