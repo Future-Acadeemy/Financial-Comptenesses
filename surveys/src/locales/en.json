@@ -1,5 +1,12 @@
 {
   "translation": {
+    "Leading and Deciding": "Leading and Deciding",
+    "Deciding & Initiating Action": "Deciding & Initiating Action",
+    "Leading and Supervising": "Leading and Supervising",
+    "Supporting and Cooperating": "Supporting and Cooperating",
+    "Working with People": "Working with People",
+    "Interacting and Presenting": "Interacting and Presenting",
+    "Relating & Networking": "Relating & Networking",
     "Making Decisions": "Making Decisions",
     "Taking Responsibility": "Taking Responsibility",
     "Acting with Confidence": "Acting with Confidence",
@@ -135,7 +142,8 @@
     "Keeping Aware of Organizational Issues": "Keeping Aware of Organizational Issues",
     "Total": "Total",
     "Question": "Question",
-    "The Work Needs It": "The Work Needs It",
-    "I Possess It": "I Possess It"
+    "To What Extend The Work Needs It": "To What Extend The Work Needs It",
+    "To What Extend You Possess It": "To What Extend You Possess It",
+    "Competencies": "Competencies"
   }
 }

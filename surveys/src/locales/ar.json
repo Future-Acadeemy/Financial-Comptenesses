@@ -1,5 +1,12 @@
 {
   "translation": {
+    "Leading and Deciding": "القيادة واتخاذ القرار",
+    "Deciding & Initiating Action": "اتخاذ القرار وبدء العمل",
+    "Leading and Supervising": "القيادة والإشراف",
+    "Working with People": "العمل مع الآخرين",
+    "Supporting and Cooperating": "الدعم والتعاون",
+    "Interacting and Presenting": "التفاعل والعرض",
+    "Relating & Networking": "العلاقات والتواصل",
     "Making Decisions": "صنع القرارات",
     "Taking Responsibility": "تحمل المسئوليات",
     "Acting with Confidence": "القدرة على التصرف بثقة",
@@ -135,7 +142,8 @@
     "Keeping Aware of Organizational Issues": "الدراية بالقضايا والمشكلات التنظيمية",
     "Total": "المجموع",
     "Question": "السؤال",
-    "The Work Needs It": "مدى ضروريتها للعمل",
-    "I Possess It": "مدى إمتلاكك للجدارة"
+    "To What Extend The Work Needs It": "مدى ضروريتها للعمل",
+    "To What Extend You Possess It": "مدى إمتلاكك للجدارة",
+    "Competencies": "الجدرات"
   }
 }

@@ -57,32 +57,32 @@ const Survey = () => {
       <form className="space-y-8" onSubmit={handleSubmit}>
         {Object.entries(competencies).map(([competency, subcategories]) => (
           <div key={competency} className="p-6 bg-gray-50 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-blue-600">
-              {competency}
+            <h2 className="text-2xl font-semibold mb-4 text-blue-600">
+              {t(competency)}
             </h2>
             {Object.entries(subcategories).map(([subcategory, questions]) => (
               <div key={subcategory} className="mb-6">
-                <h3 className="text-lg font-semibold text-gray-700">
+                <h3 className="p-4 text-lg font-semibold text-gray-700">
                   {t(subcategory)}
                 </h3>
                 <table className="w-full border-collapse border border-gray-300 text-left mt-2">
                   <thead>
                     <tr className="bg-blue-100">
-                      <th className="border border-gray-300 px-4 py-3">
+                      <th className="border border-gray-300 px-4 py-3 text-center">
                         {t("Question")}
                       </th>
                       <th className="border border-gray-300 px-4 py-3 text-center">
-                        {t("The Work Needs It")}
+                        {t("To What Extend The Work Needs It")}
                       </th>
                       <th className="border border-gray-300 px-4 py-3 text-center">
-                        {t("I Possess It")}
+                        {t("To What Extend You Possess It")}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {questions.map((question, index) => (
                       <tr key={index} className="hover:bg-gray-100">
-                        <td className="border border-gray-300 px-4 py-3">
+                        <td className="border border-gray-300 px-4 py-3 text-center">
                           {t(question)}
                         </td>
                         {["need", "possess"].map((field) => (
@@ -122,7 +122,7 @@ const Survey = () => {
                                 <option
                                   key={num + 1}
                                   value={num + 1}
-                                  className="text-gray-800"
+                                  className="text-gray-800 text-center"
                                 >
                                   {num + 1}
                                 </option>
@@ -133,8 +133,8 @@ const Survey = () => {
                       </tr>
                     ))}
                     <tr className="bg-blue-100 font-semibold">
-                      <td className="border border-gray-300 px-4 py-3 text-right">
-                        Total
+                      <td className="border border-gray-300 px-4 py-3 text-center">
+                        {t("Total")}
                       </td>
                       <td className="border border-gray-300 px-4 py-3 text-center">
                         {totals?.[competency]?.[subcategory]?.need || 0}
