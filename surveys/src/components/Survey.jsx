@@ -4,6 +4,7 @@ import { useSurveyStore } from "../store/useSurveyStore";
 import { useNavigate } from "react-router-dom";
 import useSubmit from "../hooks/useSubmit";
 import { useUserStore } from "../store/useUserStore";
+import { useTranslation } from "react-i18next";
 
 const Survey = () => {
   const {
@@ -16,6 +17,8 @@ const Survey = () => {
     scores,
     updateTotals,
   } = useSurveyStore();
+  const { t, i18n } = useTranslation();
+  console.log(t("Question")); // Check if this logs the translated value
 
   const navigate = useNavigate();
   const { userInfo } = useUserStore();
@@ -25,24 +28,28 @@ const Survey = () => {
     setPhone(userInfo.phone);
   }, [setPhone, userInfo.phone]);
 
+  // useEffect(() => {
+  //   // This will ensure the page re-renders on language change
+  // }, [i18n.language]); // Re-run when language changes
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateScores();
     console.log("the scores --> ", scores);
     // updateTotals();
-    // const surveyData = getSurveyData();
+    const surveyData = getSurveyData();
 
-    // try {
-    //   await mutation.mutateAsync({
-    //     phone: surveyData.phone,
-    //     answers: surveyData.answers,
-    //     scores: surveyData.scores,
-    //     totals: surveyData.totals,
-    //   });
-    //   navigate("/report");
-    // } catch (error) {
-    //   console.error("Submission failed", error);
-    // }
+    try {
+      await mutation.mutateAsync({
+        phone: surveyData.phone,
+        answers: surveyData.answers,
+        scores: surveyData.scores,
+        totals: surveyData.totals,
+      });
+      navigate("/report");
+    } catch (error) {
+      console.error("Submission failed", error);
+    }
   };
 
   return (
@@ -56,19 +63,19 @@ const Survey = () => {
             {Object.entries(subcategories).map(([subcategory, questions]) => (
               <div key={subcategory} className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-700">
-                  {subcategory}
+                  {t(subcategory)}
                 </h3>
                 <table className="w-full border-collapse border border-gray-300 text-left mt-2">
                   <thead>
                     <tr className="bg-blue-100">
                       <th className="border border-gray-300 px-4 py-3">
-                        Question
+                        {t("Question")}
                       </th>
                       <th className="border border-gray-300 px-4 py-3 text-center">
-                        The Work Needs It (1-10)
+                        {t("The Work Needs It")}
                       </th>
                       <th className="border border-gray-300 px-4 py-3 text-center">
-                        I Possess It (1-10)
+                        {t("I Possess It")}
                       </th>
                     </tr>
                   </thead>
@@ -76,7 +83,7 @@ const Survey = () => {
                     {questions.map((question, index) => (
                       <tr key={index} className="hover:bg-gray-100">
                         <td className="border border-gray-300 px-4 py-3">
-                          {question}
+                          {t(question)}
                         </td>
                         {["need", "possess"].map((field) => (
                           <td

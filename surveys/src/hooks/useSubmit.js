@@ -1,9 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-
+//https://survey-backend.up.railway.app
 const submitData = async (data) => {
   const response = await axios.post(
-    "https://survey-backend.up.railway.app/api/machlan",
+    "http://localhost:8080/api/competency",
     data
   );
   return response.data;
