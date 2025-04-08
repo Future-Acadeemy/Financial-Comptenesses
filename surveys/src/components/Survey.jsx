@@ -46,10 +46,10 @@ const Survey = () => {
         scores: surveyData.scores,
         totals: surveyData.totals,
       });
-      navigate("/report");
     } catch (error) {
       console.error("Submission failed", error);
     }
+    navigate("/report");
   };
 
   return (
