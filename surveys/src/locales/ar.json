@@ -145,6 +145,11 @@
     "To What Extend The Work Needs It": "مدى ضروريتها للعمل",
     "To What Extend You Possess It": "مدى إمتلاكك للجدارة",
     "Competencies": "الجدرات",
-    "Competency Gap": "فجوة الكفاءة"
+    "Competency Gap": "فجوة الكفاءة",
+    "Competency Gap Analysis": "تحليل فجوة الكفاءة",
+    "Possess": "يمتلك",
+    "Need": "يحتاج",
+    "Sub-Competency": "الكفاءة الفرعية",
+    "Gap": "فجوة"
   }
 }

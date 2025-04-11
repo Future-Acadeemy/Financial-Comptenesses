@@ -145,6 +145,10 @@
     "To What Extend The Work Needs It": "To What Extend The Work Needs It",
     "To What Extend You Possess It": "To What Extend You Possess It",
     "Competencies": "Competencies",
-    "Competency Gap": "Competency Gap"
+    "Competency Gap": "Competency Gap",
+    "Possess": "Possess",
+    "Need": "Need",
+    "Sub-Competency": "Sub-Competency",
+    "Gap": "Gap"
   }
 }
