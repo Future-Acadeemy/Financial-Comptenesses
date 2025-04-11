@@ -18,7 +18,7 @@ const Survey = () => {
     updateTotals,
   } = useSurveyStore();
   const { t, i18n } = useTranslation();
-  console.log(t("Question")); // Check if this logs the translated value
+  // console.log(t("Question")); // Check if this logs the translated value
 
   const navigate = useNavigate();
   const { userInfo } = useUserStore();
