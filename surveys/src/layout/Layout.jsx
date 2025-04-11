@@ -8,8 +8,8 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <LanguageSwitcher />
-      <h2 className="text-3xl font-bold text-blue-700 text-center mb-6">
-        {t("Competencies")}
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-blue-700 mb-6">
+        {t("Competency Gap Analysis")}
       </h2>
       <div className="flex-1">{children}</div>
       <footer className="mt-12 text-center text-sm text-gray-600">
