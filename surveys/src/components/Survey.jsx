@@ -28,10 +28,6 @@ const Survey = () => {
     setPhone(userInfo.phone);
   }, [setPhone, userInfo.phone]);
 
-  // useEffect(() => {
-  //   // This will ensure the page re-renders on language change
-  // }, [i18n.language]); // Re-run when language changes
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateScores();
