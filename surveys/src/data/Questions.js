@@ -290,3 +290,102 @@ export const competencies = {
     ],
   },
 };
+
+export const financeCompetencies = {
+  "Financial Reporting and Compliance": {
+    "Financial Statements and ERP Systems": [
+      "Able to prepare financial statements in accordance with local and international accounting standards.",
+      "Proficient in using ERP systems such as SAP or Oracle Financials.",
+      "Skilled in preparing and analyzing cash flow reports.",
+      "Regularly follow updates to IFRS and GAAP.",
+      "Apply accounting procedures accurately in accordance with internal policies.",
+      "Perform accurate reconciliations for bank accounts, receivables, and payables.",
+      "Participate in budget preparation and financial forecasting.",
+      "Possess sufficient knowledge of local taxation and its calculation mechanisms.",
+    ],
+  },
+  "Analytical Thinking and Problem Solving": {
+    "Financial Analysis and Risk": [
+      "Analyze reasons for financial variances and propose solutions.",
+      "Use appropriate analytical tools to monitor financial performance.",
+      "Conduct evaluations of financial risks in operations.",
+      "Research necessary data to solve accounting issues scientifically.",
+      "Think logically when interpreting unexpected figures.",
+      "Able to make quick financial decisions in critical situations.",
+      "Use tables and models to illustrate expected financial impacts.",
+      "Evaluate investment project feasibility through financial analysis.",
+    ],
+  },
+  "Ethical Commitment and Integrity": {
+    "Ethics and Governance": [
+      "Ensure application of governance rules and financial transparency.",
+      "Do not conceal financial errors, even if minor.",
+      "Commit to reporting any potential conflicts of interest.",
+      "Refuse to alter financial data for illegitimate purposes.",
+      "Treat customer and supplier information with strict confidentiality.",
+      "Maintain objectivity even under senior management pressure.",
+      "Demonstrate ethical behavior inside and outside the finance team.",
+      "Report unethical financial practices immediately upon discovery.",
+    ],
+  },
+  "Time Management and Organization": {
+    "Efficiency and Prioritization": [
+      "Plan my day in advance to distribute tasks effectively.",
+      "Use organizational tools such as scheduling and reminder apps.",
+      "Complete urgent tasks without neglecting routine duties.",
+      "Meet deadlines for submitting monthly and periodic reports.",
+      "Review work quality before submission to minimize errors.",
+      "Efficiently handle concurrent tasks during peak periods.",
+      "Follow up on delayed tasks and proactively execute them before they accumulate.",
+      "Set priorities based on the importance and impact of the task.",
+    ],
+  },
+  "Communication Skills": {
+    "Clarity and Collaboration": [
+      "Clearly express financial challenges I face.",
+      "Use audience-appropriate language when presenting financial reports.",
+      "Build positive professional relationships with other departments.",
+      "Provide technical feedback constructively to colleagues.",
+      "Listen carefully to feedback from audit teams or management.",
+      "Participate effectively in financial systems development discussions.",
+      "Able to confidently and clearly defend my reports to management.",
+      "Use presentations (PowerPoint/Excel) to explain complex data.",
+    ],
+  },
+  "Teamwork and Collaboration": {
+    "Cooperation and Support": [
+      "Actively contribute to team projects.",
+      "Appreciate and support colleagues when needed.",
+      "Accept differing viewpoints within the team.",
+      "Take initiative to help new colleagues with difficult tasks.",
+      "Contribute ideas to improve the finance department's performance.",
+      "Respect and fulfill my role in the team and honor others' roles.",
+      "Demonstrate team spirit during account reviews or audits.",
+      "Regularly attend team meetings.",
+    ],
+  },
+  "Learning and Professional Development": {
+    "Continuous Improvement": [
+      "Regularly read accounting-related articles and books.",
+      "Stay updated on new financial legislation or regulations.",
+      "Constantly work on improving my technical and digital skills.",
+      "Participate in professional communities or accounting forums.",
+      "Experiment with new tools to improve financial efficiency.",
+      "Conduct annual self-assessments to identify areas for growth.",
+      "Encourage colleagues to learn and share knowledge.",
+      "Set an annual plan to enhance my competency as an accountant.",
+    ],
+  },
+  "Strategic Thinking": {
+    "Long-Term Vision and Impact": [
+      "Analyze the financial impact of major management decisions.",
+      "Participate in reviewing the financial performance of strategic projects.",
+      "Evaluate financial KPIs linked to strategic objectives.",
+      "Provide financial recommendations to enhance long-term profitability.",
+      "Think of process improvements to reduce costs and increase efficiency.",
+      "Contribute to the preparation of five-year or annual financial plans.",
+      "Give input on how to allocate financial surpluses.",
+      "Analyze markets and economic trends during financial planning.",
+    ],
+  },
+};
