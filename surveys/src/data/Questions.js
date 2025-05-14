@@ -295,7 +295,7 @@ export const financeCompetencies = {
   "Financial Reporting and Compliance": {
     "Financial Statements and ERP Systems": [
       "Able to prepare financial statements in accordance with local and international accounting standards.",
-      "Proficient in using ERP systems such as SAP or Oracle Financials.",
+      "Proficient in using ERP systems such as SAP or Financial integration.",
       "Skilled in preparing and analyzing cash flow reports.",
       "Regularly follow updates to IFRS and GAAP.",
       "Apply accounting procedures accurately in accordance with internal policies.",
