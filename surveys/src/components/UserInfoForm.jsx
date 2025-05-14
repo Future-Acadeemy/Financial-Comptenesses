@@ -51,8 +51,8 @@ const UserInfoForm = ({ onSubmit }) => {
       navigate("/");
     } catch (error) {
       setMessage(
-        "Error submitting data: " + error.response?.data?.message ||
-          error.message
+        "Error submitting data: " +
+          (error.response?.data?.message || error.message)
       );
       console.error("Submission error:", error.response?.data || error);
     } finally {
@@ -72,7 +72,6 @@ const UserInfoForm = ({ onSubmit }) => {
       {[
         { label: "Full Name", name: "fullName", type: "text" },
         { label: "Phone Number", name: "phone", type: "tel" },
-        { label: "Working Entity", name: "workingEntity", type: "text" },
         { label: "Age", name: "age", type: "number" },
       ].map(({ label, name, type }) => (
         <div key={name}>
@@ -90,6 +89,25 @@ const UserInfoForm = ({ onSubmit }) => {
         </div>
       ))}
 
+      {/* Job Dropdown */}
+      <div>
+        <label className="block text-lg font-medium mb-2 text-gray-700">
+          Job
+        </label>
+        <select
+          name="workingEntity"
+          className="w-full rounded-lg p-3 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+          value={formData.workingEntity}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select</option>
+          <option value="Financial">Central Finance Department</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      {/* Gender Dropdown */}
       <div>
         <label className="block text-lg font-medium mb-2 text-gray-700">
           Gender
@@ -112,10 +130,15 @@ const UserInfoForm = ({ onSubmit }) => {
         <button
           type="submit"
           className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition"
+          disabled={loading}
         >
-          Submit
+          {loading ? "Submitting..." : "Submit"}
         </button>
       </div>
+
+      {message && (
+        <p className="text-center text-red-600 font-medium mt-4">{message}</p>
+      )}
     </form>
   );
 };
