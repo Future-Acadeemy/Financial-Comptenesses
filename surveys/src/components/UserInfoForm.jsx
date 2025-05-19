@@ -102,7 +102,9 @@ const UserInfoForm = ({ onSubmit }) => {
           required
         >
           <option value="">Select</option>
-          <option value="Financial">Central Finance Department</option>
+          <option value="Central Finance Department">
+            Central Finance Department
+          </option>
           <option value="Other">Other</option>
         </select>
       </div>
